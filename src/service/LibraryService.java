@@ -33,12 +33,15 @@ public class LibraryService {
         System.out.print("Baskı bilgisi: ");
         String edition = scanner.nextLine();
 
-        LocalDate purchaseDate = LocalDate.now(); // Şimdilik bugünün tarihi
+        LocalDate purchaseDate = LocalDate.now();
 
         BookType type = getBookTypeFromUser();
 
         Book book = new Book(generateId(), title, author, price, edition, purchaseDate, type);
         library.addBook(book);
+
+        // ✅ Kitap ID'si yazdırılıyor
+        System.out.println("Kitap eklendi: " + book.getTitle() + " | Kitap ID: " + book.getBookId());
     }
 
     // --- Üye (Reader + MemberRecord) Ekleme ---
@@ -57,6 +60,9 @@ public class LibraryService {
 
         Reader reader = new Reader(generateId(), name, email);
         library.addReader(reader, memberType, maxBookLimit);
+
+        // ✅ Okuyucu ID'si yazdırılıyor
+        System.out.println("Okuyucu ve üyelik kaydı oluşturuldu: " + reader.getName() + " | Okuyucu ID: " + reader.getId());
     }
 
     // --- Kitap Ödünç Verme ---
