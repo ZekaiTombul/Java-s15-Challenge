@@ -43,15 +43,4 @@ public class ReaderService {
         }
     }
 
-    // --- Basit doğrulama (isteğe bağlı) ---
-    public boolean verifyReaderByEmail(String email) {
-        for (Reader reader : library.getReaders()) {
-            if (reader.getEmail().equalsIgnoreCase(email)) {
-                System.out.println("Okuyucu doğrulandı: " + reader.getName());
-                return true;
-            }
-        }
-        System.out.println("Böyle bir email ile kayıtlı kullanıcı yok.");
-        return false;
-    }
 }

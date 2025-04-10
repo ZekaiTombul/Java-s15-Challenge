@@ -40,7 +40,7 @@ public class LibraryService {
         Book book = new Book(generateId(), title, author, price, edition, purchaseDate, type);
         library.addBook(book);
 
-        // ✅ Kitap ID'si yazdırılıyor
+        // Kitap ID
         System.out.println("Kitap eklendi: " + book.getTitle() + " | Kitap ID: " + book.getBookId());
     }
 
@@ -61,7 +61,7 @@ public class LibraryService {
         Reader reader = new Reader(generateId(), name, email);
         library.addReader(reader, memberType, maxBookLimit);
 
-        // ✅ Okuyucu ID'si yazdırılıyor
+        // Okuyucu ID
         System.out.println("Okuyucu ve üyelik kaydı oluşturuldu: " + reader.getName() + " | Okuyucu ID: " + reader.getId());
     }
 
@@ -92,13 +92,6 @@ public class LibraryService {
         library.showBooks();
     }
 
-    // --- Okuyucunun Ödünç Aldığı Kitapları Göster ---
-    public void showReaderBooks() {
-        System.out.print("Okuyucu ID: ");
-        int readerId = Integer.parseInt(scanner.nextLine());
-
-        library.showBorrowedBooks(readerId);
-    }
 
     // --- Kitap Türünü Kullanıcıdan Al ---
     private BookType getBookTypeFromUser() {
